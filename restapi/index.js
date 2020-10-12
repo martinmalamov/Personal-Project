@@ -5,10 +5,10 @@ const app = require('express')()
 
 dbConnection().then(() => {
     require('./config/express')(app)
-    require('./config/routes')(app)
+    // require('./config/routes')(app)
 
     app.use(function (err, req, res, next) {
-        console.log(err)
+        console.error(err)
         res.status(500).send(err.message)
     })
 
