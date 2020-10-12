@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const secret = 'secret';
 
-module.export = (app) => {
+module.exports = (app) => {
     app.use(cors({
         exposedHeaders:'Authorization'
     }));

@@ -1,7 +1,7 @@
 const user = require('./user')
 const tender = require('./tender')
 
-module.export = {
+module.exports = {
     user,
     tender
 }
