@@ -7,7 +7,7 @@ import Navigation from './navigation'
 ReactDOM.render(
   <React.StrictMode>
     <App>
-      {/* <Navigation /> */}
+      <Navigation />
     </App>
   </React.StrictMode>,
   document.getElementById('root')

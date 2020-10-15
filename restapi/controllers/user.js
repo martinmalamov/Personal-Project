@@ -26,22 +26,36 @@ module.exports = {
 
         verifyLogin: (req, res, next) => {
             // const token = req.headers.Authorization || ""
-            const token = req.cookies[config.authCookieName]
+            //corect cookie
+            // const token = req.cookies[config.authCookieName]
             // const token = req.body.token || ''
+            const token = req.headers.authorization || '';
+
             console.log('Token', token)
 
             Promise.all([
                 utils.jwt.verifyToken(token),
                 models.TokenBlacklist.findOne({ token })
             ])
-                .then(([data]) => {
+                // .then(([data]) => {
+                //     models.User.findById(data.id)
+                //         .then((email) => {
+                //             return res.send({
+                //                 status: true,
+                //                 email
+                //             })
+                //         })
+                // })
+                .then(([data, blacklistToken]) => {
+                    if (blacklistToken) { return Promise.reject(new Error('blacklisted token')) }
+
                     models.User.findById(data.id)
-                        .then((email) => {
+                        .then((user) => {
                             return res.send({
-                                status: true,
-                                email
+                                status: true,   
+                                user
                             })
-                        })
+                        });
                 })
                 .catch(err => {
                     if (["token expired", "jwt must be provided"].includes(err.message)) {
