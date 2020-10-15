@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Model = mongoose.model;
-const { String, Number, Boolean, ObjectId } = Schema.Types;
+const { String,  ObjectId } = Schema.Types;
 
 const tenderSchema = new Schema({
     headerText: {
@@ -9,7 +9,7 @@ const tenderSchema = new Schema({
         required: true
     },
 
-    description: {
+    imgUrl: {
         type: String,
         required: true
     },

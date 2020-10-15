@@ -2,8 +2,10 @@
 
 # dependencies
 /node_modules
+/restapi/node_modules
 /.pnp
 .pnp.js
+./restapi/config/dbPassword
 
 # testing
 /coverage

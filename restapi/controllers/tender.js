@@ -1,18 +1,20 @@
-const models = require('../models/index')
+const models = require('../models')
 
 module.exports = {
     get: (req, res, next) => {
 
-        models.Tender.populate("author")
-            .then((tender) => res.send(tender))
+        models.Tender.find().populate("author")
+            .then((tenders) => res.send(tenders))
             .catch(next)
     },
 
     post: (req, res, next) => {
-        const { headerText, description, footerText } = req.body
-        const { _id } = req.user
+        const { headerText, imgUrl, footerText } = req.body
+        const { _id } = req.email
+        console.log(req.email)
+        console.log(req.user)
 
-        models.Tender.create({ headerText, description, footerText, author: _id })
+        models.Tender.create({ headerText, imgUrl, footerText, author: _id })
             .then((createdTender) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { posts: createdTender } }),
