@@ -1,18 +1,18 @@
-const models = require('../models/User')
+const models = require('../models')
 const config = require('../config/config')
 const utils = require('../utils')
-const { user } = require('.')
 
 module.exports = {
-    get: (req, res, next) {
+    get: (req, res, next) => {
         models.User.findById(req.query.id)
         then((email) => res.send(email))
             .catch((err) => res.status(500).send('Server Error'))
     },
 
     post: {
-        register: (req, res, next) {
+        register: (req, res, next) => {
             const { email, password } = req.body
+            console.log('email', email)
             models.User.create({ email, password })
                 .then((createdEmail) => {
                     const token = utils.jwt.createToken({ id: createdEmail._id })
@@ -25,10 +25,14 @@ module.exports = {
 
 
         verifyLogin: (req, res, next) => {
-            const token = req.headers.authorization || ""
+            // const token = req.headers.Authorization || ""
+            const token = req.cookies[config.authCookieName]
+            // const token = req.body.token || ''
+            console.log('Token', token)
 
             Promise.all([
-                utils.jwt.verifyToken(token)
+                utils.jwt.verifyToken(token),
+                models.TokenBlacklist.findOne({ token })
             ])
                 .then(([data]) => {
                     models.User.findById(data.id)
@@ -60,8 +64,10 @@ module.exports = {
                         res.status(401).send("Invalid password or email")
                     }
 
-                    const token = utils.jwt.createToken({ id: user._id })
-                    res.header("Authorization", token).send(email)
+                    const token = utils.jwt.createToken({ id: email._id })
+                    // res.header("Authorization", token).send(email)
+                    //we provide cookie  with config.authCookieName(x-auth-token)
+                    res.cookie(config.authCookieName, token).send(email)
                 })
                 .catch(next)
         },

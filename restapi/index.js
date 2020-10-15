@@ -5,7 +5,7 @@ const app = require('express')()
 
 dbConnection().then(() => {
     require('./config/express')(app)
-    // require('./config/routes')(app)
+    require('./config/routes')(app)
 
     app.use(function (err, req, res, next) {
         console.error(err)
