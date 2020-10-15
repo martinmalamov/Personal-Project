@@ -6,7 +6,7 @@ import {
     Redirect
 } from 'react-router-dom'
 
-// import Publication from './pages/pubclication'
+import Publication from './pages/publications'
 // import ShareTender from './pages/share-tender'
 import Sign_up_Page from './pages/sign_up'
 // import Sign_in_Page from './pages/sign_in'
@@ -20,7 +20,7 @@ const Navigation = () => {
     return(
         <BrowserRouter>
             <Switch>
-                {/* <Route path="/" exact component={Publication} /> */}
+                <Route path="/" exact component={Publication} />
              
                 <Route path="/sign_up" >
                     <Sign_up_Page />
@@ -33,5 +33,6 @@ const Navigation = () => {
             </Switch>
         </BrowserRouter>
     )
-
 }
+
+export default Navigation
