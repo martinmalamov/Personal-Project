@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Tender from '../tender'
 import styles from './index.module.scss'
+import getTender from '../../utils/tender'
 
 class Tenders extends Component {
     constructor(props) {
@@ -35,10 +36,10 @@ class Tenders extends Component {
     }
 
     render() {
-        console.log(this.state.tenders)
-        const {
-            tenders
-        } = this.state
+        // console.log(this.state.tenders)
+        // const {
+        //     tenders
+        // } = this.state
 
         return (
             <div className={styles.container}>
@@ -51,7 +52,37 @@ class Tenders extends Component {
     }
 }
 
-export default Tenders
+// const Tenders = (props) => {
+//     const [tenders, setTenders] = useState([])
+//     console.log('PROPS---------',props)
+
+//     const getTenders = useCallback(async () => {
+//         //props.length return only 3 thoughts because our server require it
+//         const tenders = await getTender(props.length)
+//         setTenders(tenders)
+//     }, [props.length])
+
+//     const renderTenders = useMemo(() => {
+//         return tenders.map((tender, index) => {
+//             return (
+//                 <Tender key={tender._id} index={index} {...tender} />
+//             )
+//         })
+//     }, [tenders])
+
+//     useEffect(() => {
+//         getTenders()
+//     }, [props.updateTenders, getTenders])
+
+
+
+//     return (
+//         <div className={styles["tenders-wrapper"]}>
+//             {renderTenders}
+//         </div>
+//     )
+// }
+
 
 // return (
 //     <div className={styles.container}>
@@ -69,3 +100,5 @@ export default Tenders
 //         </div>
 //     </div>
 // )
+
+export default Tenders
