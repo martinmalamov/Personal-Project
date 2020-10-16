@@ -1,3 +1,8 @@
+This is a project about searching of housing , Users can search tenders of all users who offer housing.
+Users who are signed in can only makes posts about their housing.
+Guest only can read informations about all tenders.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
