@@ -9,7 +9,7 @@ import {
 import Publication from './pages/publications'
 // import ShareTender from './pages/share-tender'
 import Sign_up_Page from './pages/sign_up'
-// import Sign_in_Page from './pages/sign_in'
+import Sign_in_Page from './pages/sign_in'
 // import ProfilePage from './pages/pubclication'
 import UserContext from './Context'
 
@@ -26,10 +26,11 @@ const Navigation = () => {
                     <Sign_up_Page />
                 </Route>
 
-                {/* <Route path="/sign_in" >
+                <Route path="/sign_in" >
                     <Sign_in_Page />
 
-                </Route> */}
+                </Route>
+
             </Switch>
         </BrowserRouter>
     )

@@ -1,8 +1,9 @@
+
 .submit {
     background-color: #234465;
     color: white;
     padding: 1%;
-    width: 7%;
+    width: 80px;
     border-radius: 6px;
     display: block;
     margin: 0 auto;
@@ -17,4 +18,5 @@
     border: 2px solid #234465;
     color: #234465;
     font-style: italic;
+    cursor: pointer;
 }

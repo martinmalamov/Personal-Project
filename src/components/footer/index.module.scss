@@ -1,4 +1,19 @@
 .container{
     background-color: black;
     color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-auto-flow: column;
+    justify-items: right;
+    align-items: center;
+    padding: 7%;
+   
+}
+
+.navigation {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr ;
+    grid-auto-flow: row;
+    justify-items: left;
 }

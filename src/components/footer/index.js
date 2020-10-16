@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Link from '../link'
 import styles from './index.module.scss'
-import logo from '../../images/logo.png'
 import UserContext from '../../Context'
 import getNavigation from '../../utils/navigation'
 
@@ -29,7 +28,7 @@ class Footer extends Component {
                                     key={navElement.title}
                                     href={navElement.link}
                                     title={navElement.title}
-                                    type="header" />
+                                    type="footer" />
                             )
                         })
                     }
