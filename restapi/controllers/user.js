@@ -8,6 +8,7 @@ module.exports = {
         then((email) => res.send(email))
             .catch((err) => res.status(500).send('Server Error'))
     },
+   
 
     post: {
         register: (req, res, next) => {
@@ -52,7 +53,7 @@ module.exports = {
                     models.User.findById(data.id)
                         .then((user) => {
                             return res.send({
-                                status: true,   
+                                status: true,
                                 user
                             })
                         });

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Model = mongoose.model;
-const { String,  ObjectId } = Schema.Types;
+const { String, ObjectId } = Schema.Types;
 
 const tenderSchema = new Schema({
     headerText: {
@@ -21,9 +21,9 @@ const tenderSchema = new Schema({
 
     author: {
         type: ObjectId,
-        ref: 'User'
+        ref: "User"
     }
 
 }, { timestamps: { createdAt: "created_at" } })
 
-module.exports = new Model('Tender', tenderSchema)
+module.exports = new Model("Tender", tenderSchema)

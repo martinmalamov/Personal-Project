@@ -1,11 +1,18 @@
 const models = require('../models')
 
 module.exports = {
-    get: (req, res, next) => {
+    // get: (req, res, next) => {
 
-        models.Tender.find().populate("author")
+    //     models.Tender.find().populate("author")
+    //         .then((tenders) => res.send(tenders))
+    //         .catch(next)
+    // },
+    get: (req, res, next) => {
+        const length = req.query.length ? parseInt(req.query.length) : 20
+        //   .sort('-created_at') from mongoose 
+        models.Tender.find().sort('-created_at').limit(length).populate('author')
             .then((tenders) => res.send(tenders))
-            .catch(next)
+            .catch(next);
     },
 
     post: (req, res, next) => {

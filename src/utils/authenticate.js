@@ -4,7 +4,7 @@ const authenticate = async (url, body, onSuccess, onFailure) => {
             method: 'POST',
             body: JSON.stringify(body),
             headers: {
-                'Content Type': 'application/json'
+                'Content-Type': 'application/json'
             }
         })
 
