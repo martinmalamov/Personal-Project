@@ -1,0 +1,23 @@
+.container {
+    width: 400px;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px 50px;
+    background-color: #bbb4;
+    margin-bottom: 1%;
+    border-radius: 1%;
+}
+
+.container-wrapper{
+    padding: 3%;
+}
+
+.email{
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.indexCounter {
+    display: flex;
+    justify-content: flex-end;
+}

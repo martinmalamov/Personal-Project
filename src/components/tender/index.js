@@ -4,34 +4,36 @@ import styles from './index.module.scss'
 
 const Tender = ({ headerText, imgUrl, footerText, author, index }) => {
 
-    console.log("textHeader::::",headerText)
-    console.log("author::::",author)
     return (
         <div className={styles.container}>
+            <div className={styles.['container-wrapper']}>
 
-            <div className={headerText}>
-                <span>{index}</span>
-                <div dangerouslySetInnerHTML={{ __html: headerText }} />
-            </div>
+                <div className={headerText}>
+                    <span className={styles.indexCounter}>
+                        {index}
+                    </span>
 
-            {/* TODO logic to insert image */}
-            <div className={imgUrl}>
+                    <div dangerouslySetInnerHTML={{ __html: headerText }} />
+                </div>
+
+                {/* TODO logic to insert image */}
+                {/* <div className={imgUrl}>
                 <div dangerouslySetInnerHTML={{ __html: imgUrl }} />
             </div>
+*/}
 
-   
 
-            <div className={footerText}>
-                <div dangerouslySetInnerHTML={{ __html: footerText }} />
+                <div className={footerText}>
+                    <div dangerouslySetInnerHTML={{ __html: footerText }} />
+                </div>
+
+                <p className={styles.email}>
+                    <span className={styles.email}>
+                        <small>Author:</small>
+                        {author.email}
+                    </span>
+                </p>
             </div>
-
-            <p>
-                <span className={styles.email}>
-                    <small>Author:</small>
-                    {author.email}
-                </span>
-            </p>
-
         </div>
     )
 }

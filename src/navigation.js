@@ -7,28 +7,41 @@ import {
 } from 'react-router-dom'
 
 import Publication from './pages/publications'
-// import ShareTender from './pages/share-tender'
+import MakePostPage from './pages/make-post'
 import Sign_up_Page from './pages/sign_up'
 import Sign_in_Page from './pages/sign_in'
-// import ProfilePage from './pages/pubclication'
+import ProfilePage from './pages/profile'
 import UserContext from './Context'
 
-const Navigation = () => {
-    // const context = useContext(UserContext)
-    // const loggedIn = context.user.loggedIn
+import Logout from './pages/logout'
 
-    return(
+const Navigation = () => {
+    const context = useContext(UserContext)
+    const loggedIn = context.user.loggedIn
+
+    return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Publication} />
-             
+
+                <Route path="/logout/:userid">
+                    {loggedIn ? (<Logout />) : (<Redirect to="/sign_in" />)} 
+                </Route>
+
+                <Route path="/make_post">
+                    {loggedIn ? (<MakePostPage />) : (<Redirect to="/sign_in" />)}
+                </Route>
+
                 <Route path="/sign_up" >
-                    <Sign_up_Page />
+                    {loggedIn ? (<Redirect to="/" />) : (<Sign_up_Page />)}
                 </Route>
 
                 <Route path="/sign_in" >
-                    <Sign_in_Page />
+                    {loggedIn ? (<Redirect to="/" />) : (<Sign_in_Page />)}
+                </Route>
 
+                <Route path="/profile/:userid">
+                    {loggedIn ? (<ProfilePage />) : (<Redirect to="sign_in" />)}
                 </Route>
 
             </Switch>

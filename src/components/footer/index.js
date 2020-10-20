@@ -9,20 +9,17 @@ class Footer extends Component {
     render() {
 
         const {
-            email
+            user
         } = this.context
-        console.log(email)
 
-        const links = getNavigation(email)
-        console.log(links)
+        const links = getNavigation(user)
 
         return (
-            <header className={styles.container}>
+            <footer className={styles.container}>
                 <div className={styles.navigation}>
 
                     {
                         links.map(navElement => {
-                            console.log(navElement)
                             return (
                                 <Link
                                     key={navElement.title}
@@ -32,9 +29,11 @@ class Footer extends Component {
                             )
                         })
                     }
-
                 </div>
-            </header>
+                <div className={styles.createdBy}>
+                    Created by Martin Malamov
+                    </div>
+            </footer>
         )
     }
 }

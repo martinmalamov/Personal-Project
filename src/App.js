@@ -27,11 +27,11 @@ const App = (props) => {
     useEffect(() => {
         const token = getCookie('x-auth-token')
 
-        // if (!token) {
-        //     logOut()
-        //     setLoading(false)
-        //     return
-        // }
+        if (!token) {
+            logOut()
+            setLoading(false)
+            return
+        }
 
         //fetch to REST API
         fetch('http://localhost:9000/api/user/verify', {

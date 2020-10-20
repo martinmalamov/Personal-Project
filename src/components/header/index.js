@@ -10,10 +10,10 @@ class Header extends Component {
     render() {
 
         const {
-            email
+            user
         } = this.context
 
-        const links = getNavigation(email)
+        const links = getNavigation(user)
 
         return (
             <header className={styles.container}>
@@ -29,7 +29,7 @@ class Header extends Component {
 
                                 <Link
                                     key={navElement.title}
-                                    
+
                                     href={navElement.link}
                                     title={navElement.title}
                                     type="header" />
@@ -46,12 +46,3 @@ class Header extends Component {
 
 export default Header
 
-// <header className={styles.container}>
-
-{/* <div className={styles.navigation}>
-                    <Link href="#" title="Going to 1" type="header" />
-                    <Link href="#" title="Going to 1" type="header" />
-                    <Link href="#" title="Going to 1" type="header" />
-                    <Link href="#" title="Going to 1" type="header" />
-                    <Link href="#" title="Going to 1" type="header" />
-                </div> */}

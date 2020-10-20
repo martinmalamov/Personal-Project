@@ -2,10 +2,10 @@
     background-color: black;
     color: white;
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-auto-flow: column;
-    justify-items: right;
-    align-items: center;
+    // justify-items: right;
+    align-items: self-end;
     padding: 5%;
    
 }
@@ -16,4 +16,8 @@
     grid-template-rows: 1fr 1fr 1fr ;
     grid-auto-flow: row;
     justify-items: left;
+}
+
+.createdBy{
+    text-align: center;
 }
