@@ -5,10 +5,10 @@ const utils = require('../utils')
 module.exports = {
     get: (req, res, next) => {
         models.User.findById(req.query.id)
-        then((email) => res.send(email))
+            .then((user) => res.send(user))
             .catch((err) => res.status(500).send('Server Error'))
     },
-   
+
 
     post: {
         register: (req, res, next) => {
@@ -30,6 +30,7 @@ module.exports = {
             //corect cookie
             // const token = req.cookies[config.authCookieName]
             // const token = req.body.token || ''
+
             const token = req.headers.authorization || '';
 
             console.log('Token', token)
@@ -38,15 +39,6 @@ module.exports = {
                 utils.jwt.verifyToken(token),
                 models.TokenBlacklist.findOne({ token })
             ])
-                // .then(([data]) => {
-                //     models.User.findById(data.id)
-                //         .then((email) => {
-                //             return res.send({
-                //                 status: true,
-                //                 email
-                //             })
-                //         })
-                // })
                 .then(([data, blacklistToken]) => {
                     if (blacklistToken) { return Promise.reject(new Error('blacklisted token')) }
 
@@ -73,25 +65,34 @@ module.exports = {
         login: (req, res, next) => {
             const { email, password } = req.body
             models.User.findOne({ email })
-                .then((email) => Promise.all([email, email.matchPassword(password)]))
-                .then(([email, match]) => {
+                .then((user) => Promise.all([user, user.matchPassword(password)]))
+                .then(([user, match]) => {
                     if (!match) {
                         res.status(401).send("Invalid password or email")
                     }
 
-                    const token = utils.jwt.createToken({ id: email._id })
-                    // res.header("Authorization", token).send(email)
+                    const token = utils.jwt.createToken({ id: user._id })
+                    res.header("Authorization", token).send(user)
                     //we provide cookie  with config.authCookieName(x-auth-token)
-                    res.cookie(config.authCookieName, token).send(email)
+                    // res.cookie(config.authCookieName, token).send(email)
                 })
                 .catch(next)
         },
 
+
         logout: (req, res, next) => {
-            const token = req.cookies(config.authCookieName)
-            res.clearCookie(config.authCookieName).send('Logout successfully')
-            next()
+            const token = req.cookies[config.authCookieName];
+            models.TokenBlacklist.create({ token })
+                .then(() => {
+                    res.clearCookie(config.authCookieName).send('Logout successfully!');
+                })
+                .catch(next);
         }
+        // logout: (req, res, next) => {
+        //     const token = req.cookies(config.authCookieName)
+        //     res.clearCookie(config.authCookieName).send('Logout successfully')
+        //     next()
+        // }
     },
 
     put: (req, res, next) => {

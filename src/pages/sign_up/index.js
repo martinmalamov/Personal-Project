@@ -20,7 +20,6 @@ class Sign_up_Page extends Component {
 
     onChange = (event, type) => {
         const newState = {}
-        // console.log(event)
         newState[type] = event.target.value
 
         this.setState(newState)

@@ -11,7 +11,6 @@ const tenderSchema = new Schema({
 
     imgUrl: {
         type: String,
-        required: true
     },
 
     footerText: {

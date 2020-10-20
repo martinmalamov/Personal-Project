@@ -1,9 +1,19 @@
 $font-size: 1em;
 
-.header-list-item {
-    margin-right: 10px;
-    width: 100%;
-    padding: 7%;
+.header-link {
+    color: white ;
+    text-decoration: none;
+}
+
+.header-list-item , .footer-list-item{
+    display: inline-block;
+    height: auto;
+    margin-right: 2%;
+    cursor: pointer;
+    padding: 0.5%;
+    margin: 0.1%;
+    vertical-align: top;
+    padding-left: 30px;
 }
 
 .footer-list-item {

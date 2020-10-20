@@ -1,22 +1,27 @@
-const getNavigation = (email) => {
+const getNavigation = (user) => {
     const authLinks = [
+        
         {
-            title: "Tender",
+            title: "Publication",
             link: "/"
         },
         {
-            title: "Make offer",
-            link: "/make-offer"
+            title: "MakePost",
+            link: "/make_post"
         },
         {
             title: "Profile",
-            link: `/profile/${email && email.id}`
+            link: `/profile/${user && user.id}`
         },
+        {
+            title: "Logout",
+            link: `/logout/${user && user.id}`
+        }
     ]
 
     const guestLinks = [
         {
-            title: "Tender",
+            title: "Publications",
             link: "/"
         },
 
@@ -30,8 +35,8 @@ const getNavigation = (email) => {
             link: "/sign_up"
         }
     ]
-
-    return authLinks, guestLinks
+    const loggedIn = user && user.loggedIn
+    return loggedIn ? authLinks : guestLinks
 }
 
 export default getNavigation

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Link from '../link'
-import styles from './index.module.scss'
-import getNavigation from '../../utils/navigation'
+// import Link from '../link'
+// import styles from './index.module.scss'
+// import getNavigation from '../../utils/navigation'
 import UserContext from '../../Context'
 
 class Aside extends Component {
@@ -9,30 +9,31 @@ class Aside extends Component {
     static contextType = UserContext
 
     render() {
-        const {
-            user
-        } = this.context
+        // const {
+        //     user
+        // } = this.context
 
-        const links = getNavigation(user)
-        console.log("links Aside::::::", links)
-        console.log("user Aside::::::", user)
+        // const links = getNavigation(user)
 
         return (
-            <aside className={styles.container}>
-                {
-                    links.map(navElement => {
-                        return (
-                            <Link
-                                key={navElement.title}
+            <aside>
 
-                                href={navElement.link}
-                                title={navElement.title}
-                                type="aside"
-                            />
-                        )
-                    })
-                }
             </aside>
+            // <aside className={styles.container}>
+            //     {
+            //         links.map(navElement => {
+            //             return (
+            //                 <Link
+            //                     key={navElement.title}
+
+            //                     href={navElement.link}
+            //                     title={navElement.title}
+            //                     type="aside"
+            //                 />
+            //             )
+            //         })
+            //     }
+            // </aside>
         )
     }
 }

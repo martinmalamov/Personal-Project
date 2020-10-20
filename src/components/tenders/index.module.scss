@@ -8,5 +8,11 @@
 .h1{
     text-align: center;
     color: blue;
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+.tenders-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

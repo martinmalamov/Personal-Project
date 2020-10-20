@@ -10,9 +10,11 @@ const authenticate = async (url, body, onSuccess, onFailure) => {
 
         const authToken = promise.headers.get('Authorization')
         document.cookie = `x-auth-token=${authToken}`
-
+        console.log('authToken- ', authToken)
+        
         const response = await promise.json()
-        console.log(response)
+        console.log('response email - ', response)
+        
 
         if (response.email && authToken) {
             onSuccess({
