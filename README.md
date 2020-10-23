@@ -1,9 +1,16 @@
 This is a project about searching of housing , Users can search tenders of all users who offer housing.
-Users who are signed in can only makes posts about their housing.
-Guest only can read informations about all tenders.
+Users who are signed in can makes posts about their housing.
+Guests can read informations about all tenders and if they are landlord and want to offer housing they must to sign up  and to make their post.
+
+For this application are used following technologies: React.JS, Node.JS , SCSS , HTML , MongoDB (mongoose library)
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To start project you must use cmd or other terminal.
+In console write :
+To start frontend server (starting backend server at localhost:3000) - yarn start 
+To start backend server (starting web  server at localhost:9000) - yarn(npm) run start 
+
+
 
 ## Available Scripts
 

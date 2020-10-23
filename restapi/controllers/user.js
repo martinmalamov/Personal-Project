@@ -12,8 +12,15 @@ module.exports = {
 
     post: {
         register: (req, res, next) => {
-            const { email, password } = req.body
+            const { email, password  } = req.body
             console.log('email', email)
+
+            if(password.length < 6 ){
+                console.log('Password must be at least 6 symbols')
+                return
+            }
+
+
             models.User.create({ email, password })
                 .then((createdEmail) => {
                     const token = utils.jwt.createToken({ id: createdEmail._id })
