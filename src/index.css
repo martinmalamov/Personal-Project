@@ -15,3 +15,19 @@ code {
 * {
   box-sizing:border-box
 }
+
+/* scrollbar */
+body::-webkit-scrollbar {
+  width: 0.60rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+}
+
+body::-webkit-scrollbar-thumb {
+  /* min-height: 30%; */
+  background: rgb(0,255,119);
+background: linear-gradient(90deg, rgba(0,255,119,1) 0%, rgba(36,27,0,0.785049053801208) 35%, rgba(121,84,9,1) 79%);
+}
+/* scrollbar */

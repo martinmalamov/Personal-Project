@@ -6,6 +6,8 @@ import {
     Redirect
 } from 'react-router-dom'
 
+import "./components/fontAwesomeIcons"
+
 import Publication from './pages/publications'
 import MakePostPage from './pages/make-post'
 import Sign_up_Page from './pages/sign_up'
