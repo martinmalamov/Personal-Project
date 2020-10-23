@@ -65,7 +65,7 @@ const ProfilePage = () => {
             <div>
                 <h2>Your last three posts</h2>
             </div>
-            <Tenders length={3} />
+            <Tenders length={3}   />
         </PageLayout>
     )
 }

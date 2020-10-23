@@ -4,7 +4,7 @@
 
 .container{
     background: rgb(0,255,119);
-background: linear-gradient(90deg, rgba(0,255,119,1) 0%, rgba(36,27,0,0.785049053801208) 35%, rgba(121,84,9,1) 79%);
+    background: linear-gradient(90deg, rgba(0,255,119,1) 0%, rgba(36,27,0,0.785049053801208) 35%, rgba(121,84,9,1) 79%);
     display: grid;
     grid-template-columns: 1fr 1fr ;
     grid-auto-flow: column;

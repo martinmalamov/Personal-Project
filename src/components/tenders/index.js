@@ -54,10 +54,17 @@ import getTender from '../../utils/tender'
 
 const Tenders = (props) => {
     const [tenders, setTenders] = useState([])
+    const [user, setUser] = useState('')
 
     const getTenders = useCallback(async () => {
         //props.length return only 3 thoughts because our server require it
         const tenders = await getTender(props.length)
+        console.log("TENDERS", tenders)
+        console.log("User id", props)
+        if(tenders._id !== user._id){
+            setTenders(tenders.length = 0)
+            return
+        }
         setTenders(tenders)
     }, [props.length])
 
