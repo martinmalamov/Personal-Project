@@ -29,9 +29,10 @@ const Logout = () => {
 
 
     return (
-        logIn,
-        logOut
+        // logIn,
+        // logOut
         // onclick={logOut}
+        <button onClick={logOut}>Logout</button> 
     )
 
 }

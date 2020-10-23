@@ -13,10 +13,10 @@ const getNavigation = (user) => {
             title: "Profile",
             link: `/profile/${user && user.id}`
         },
-        {
-            title: "Logout",
-            link: `/logout/${user && user.id}`
-        }
+        // {
+        //     title: "Logout",
+        //     link: `/logout/${user && user.id}`
+        // }
     ]
 
     const guestLinks = [

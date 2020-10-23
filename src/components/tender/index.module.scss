@@ -3,21 +3,18 @@
     height: 300px;
     display: grid;
     grid-template-rows: 50px 1fr 50px 50px;
-    background-color: #bbb4;
+    background-color: white;
+    border: 3px solid brown;
     margin-bottom: 1%;
-    border-radius: 1%;
+    border-radius: 2%;
 }
 
 .container-wrapper{
     padding: 3%;
 }
 
+.indexCounter,
 .email{
     display: flex; 
-    justify-content: flex-end;
-}
-
-.indexCounter {
-    display: flex;
     justify-content: flex-end;
 }

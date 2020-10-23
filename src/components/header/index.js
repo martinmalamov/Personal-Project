@@ -5,6 +5,7 @@ import logo from '../../images/logo.png'
 import UserContext from '../../Context'
 import getNavigation from '../../utils/navigation'
 
+
 class Header extends Component {
     static contextType = UserContext
     render() {
@@ -29,7 +30,6 @@ class Header extends Component {
 
                                 <Link
                                     key={navElement.title}
-
                                     href={navElement.link}
                                     title={navElement.title}
                                     type="header" />
