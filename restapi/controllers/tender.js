@@ -16,12 +16,12 @@ module.exports = {
     },
 
     post: (req, res, next) => {
-        const { headerText, imgUrl, footerText } = req.body
+        const {town , headerText, imgUrl, footerText } = req.body
         const { _id } = req.user
         console.log('REQ EMAIL', req.email)
         console.log('REQ USER ' ,req.user)
 
-        models.Tender.create({ headerText, imgUrl, footerText, author: _id })
+        models.Tender.create({ town,  headerText, imgUrl, footerText, author: _id })
             .then((createdTender) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { posts: createdTender } }),

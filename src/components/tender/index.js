@@ -2,18 +2,25 @@ import React from 'react'
 import styles from './index.module.scss'
 // import image from '../../images'
 
-const Tender = ({ headerText, imgUrl, footerText, author, index }) => {
+const Tender = ({ town, headerText, imgUrl, footerText, author, index }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.['container-wrapper']}>
+            <div className={styles['container-wrapper']}>
 
                 <div className={headerText}>
-                    <span className={styles.indexCounter}>
-                        {index}
-                    </span>
 
-                    <div dangerouslySetInnerHTML={{ __html: headerText }} />
+                    <div className={town}>
+                        <span className={styles.indexCounter}>
+                            {index}
+                        </span>
+                        <div>
+                            <span className={styles.text} dangerouslySetInnerHTML={{ __html: town }} />
+                            <span className={styles.rooms} dangerouslySetInnerHTML={{ __html: headerText }} />
+                        </div>
+                    </div>
+
+
                 </div>
 
                 {/* TODO logic to insert image */}

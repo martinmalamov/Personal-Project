@@ -23,15 +23,10 @@ img{
     justify-self: left;
     height: 100%;
     max-width: 100px;
+    margin-left: 20px;
 }
 
 .navigation {
-    // width: 100%;
-    // display: grid;
-    // grid-template-columns: 1fr 1fr 1fr 1fr;
-    // grid-auto-flow: column;
-    // justify-items: right;
-    // align-items: center;
     display: flex;
     height: 100%;
     padding: 20px;
