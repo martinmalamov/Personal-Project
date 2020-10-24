@@ -10,17 +10,19 @@ import ImageUpload from '../../components/imageApload'
 // import axios from 'axios'
 
 const MakePostPage = () => {
+    const [town, setTown] = useState('')
     const [myHeaderText, setMyHeaderText] = useState('')
     const [myImgUrl, setMyImgUrl] = useState()
     const [myFooterText, setMyFooterText] = useState('')
     const [updatedTender, setUpdatedTender] = useState([])
 
     const handleSubmit = async (e) => {
-        // e.preventDefault()
+        e.preventDefault()
 
         await fetch('http://localhost:9000/api/tender', {
             method: 'POST',
             body: JSON.stringify({
+                town: town,
                 headerText: myHeaderText,
                 imgUrl: myImgUrl,
                 footerText: myFooterText
@@ -31,6 +33,7 @@ const MakePostPage = () => {
             }
         })
 
+        setTown('')
         setMyHeaderText('')
         setMyImgUrl('')
         setMyFooterText('')
@@ -50,8 +53,28 @@ const MakePostPage = () => {
             <Title title="Make your post" />
             <Container>
                 <Select>
+                    <label htmlFor="towns">Choose town:</label>
+                    <select required value={town} id="towns" name="townList" form="townForm"
+                        onChange={e => setTown(e.target.value)}>
+                        <option value=""></option>
+                        <option value="Sofia">Sofia</option>
+                        <option value="Varna">Varna</option>
+                        <option value="Plovdiv">Plovdiv</option>
+                        <option value="Blagoevgrad">Blagoevgrad</option>
+                        <option value="Pleven">Pleven</option>
+                        <option value="Pernik">Pernik</option>
+                        <option value="Shumen">Shumen</option>
+                        <option value="Haskovo">Haskovo</option>
+                        <option value="Sliven">Sliven</option>
+                        <option value="Qmbol">Qmbol</option>
+                        <option value="Lovech">Lovech</option>
+                        <option value="Kazanluk">Kazanluk</option>
+                        <option value="Montana">Montana</option>
+                    </select>
+                </Select>
+                <Select>
                     <label htmlFor="rooms">Choose room count:</label>
-                    <select value={myHeaderText} id="rooms" name="roomList" form="roomForm"
+                    <select required value={myHeaderText} id="rooms" name="roomList" form="roomForm"
                         onChange={e => setMyHeaderText(e.target.value)}>
                         <option value="One-room">One-room</option>
                         <option value="Two-room">Two-room</option>
@@ -88,7 +111,7 @@ const MakePostPage = () => {
                 </div>
 
             </Container >
-            <Tenders length={3} updatedTender={updatedTender } />
+            <Tenders length={3} updatedTender={updatedTender} />
         </PageLayout >
     )
 }

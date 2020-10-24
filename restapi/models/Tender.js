@@ -4,6 +4,10 @@ const Model = mongoose.model;
 const { String, ObjectId } = Schema.Types;
 
 const tenderSchema = new Schema({
+    town: {
+        type: String,
+        required: true
+    },
     headerText: {
         type: String,
         required: true
