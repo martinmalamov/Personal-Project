@@ -7,8 +7,8 @@ For this application are used following technologies: React.JS, Node.JS , SCSS ,
 
 To start project you must use cmd or other terminal.
 In console write :
-To start frontend server (starting backend server at localhost:3000) - yarn start 
-To start backend server (starting web  server at localhost:9000) - yarn(npm) run start 
+To start frontend server (starting web server at localhost:3000) - yarn start 
+To start backend server (starting backend  server at localhost:9000) - yarn(npm) run start 
 
 
 
